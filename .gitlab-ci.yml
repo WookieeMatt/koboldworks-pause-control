@@ -1,0 +1,40 @@
+# You can override the included template(s) by including variable overrides
+# See https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#priority-of-environment-variables
+stages:
+  - lint
+  - test
+  - deploy
+
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
+eslint:
+  stage: lint
+  image: node
+  interruptible: true
+  rules:
+  - allow_failure: false
+  - if: $CI_COMMIT_BRANCH
+    when: never
+  - if:  $CI_COMMIT_TAG
+    when: never
+  script:
+  - npm install
+  - npx eslint .
+
+tag-latest:
+  stage: deploy
+  interruptible: true
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_COMMIT_TAG'
+  before_script:
+    - export TAG_ABBREV=`git describe --tags --abbrev=0`
+  script:
+    - git remote show origin
+    - git remote add origin git@gitlab.com:$CI_PROJECT_PATH.git
+    - git config user.name "$GITLAB_USER_NAME"
+    - git config user.email "$GITLAB_USER_EMAIL"
+    - git tag latest -fa "latest" -m "$TAG_ABBREV"
+    - git push origin --tags

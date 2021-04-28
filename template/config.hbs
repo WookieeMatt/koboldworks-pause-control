@@ -1,0 +1,24 @@
+<form autocomplete='off' class='flexcol'>
+	{{#each settings}}
+	<div class='form-group'>
+		<label for='setting.onReady'>{{localize this.label}}</label>
+		<div class='form-fields'>
+			<input type='checkbox' name='{{this.key}}' data-dtype='Boolean' {{checked this.value}}></input>
+			</input>
+		</div>
+		<p class='notes'>{{localize this.hint}}</p>
+	</div>
+	{{/each}}
+
+	{{!-- BUTTONS --}}
+	<div class='form-group'>
+		<button type='submit' name='submit'>
+			<i class="fas fa-save"></i>
+			{{localize 'SETTINGS.Save'}}
+		</button>
+		<button type='submit' name='reset'>
+			<i class="fas fa-sync"></i>
+			{{localize 'SETTINGS.Reset'}}
+		</button>
+	</div>
+</form>

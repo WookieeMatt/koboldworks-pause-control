@@ -1,0 +1,19 @@
+{
+	"Koboldworks": {
+		"Pause": {
+			"MenuLabel": "Pausing & unpausing",
+			"Title": "Pause Configuration",
+			"MenuHint": "Allows pausing & unpausing in variety of system agnostic scenarios.",
+			"CombatControl": "Combat pause control",
+			"CombatControlHint": "Pauses and unpauses automatically if it's player's turn or not.",
+			"Restore": "Restore pause state",
+			"RestoreHint": "Restore pause state at end of combat to what it was at start of it."
+		},
+		"Unpause": {
+			"OnReady": "Unpause on ready",
+			"OnReadyHint": "Unpause game when the system signals readiness.",
+			"OnCombat": "Unpause on combat",
+			"OnCombatHint": "Unpause game when combat starts."
+		}
+	}
+}
