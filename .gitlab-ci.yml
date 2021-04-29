@@ -22,8 +22,8 @@ tag-latest:
     - git config --global user.email "${GITLAB_USER_EMAIL}"
     - git remote set-url origin  "https://${GITLAB_USER_LOGIN}:${CI_SECRET_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}"
     - export TAG_ABBREV=`git describe --tags --abbrev=0`
+    - export TAG_COMMIT=`git show-ref -s refs/tags/${TAG_ABBREV}`
   script:
     - git remote show origin
-    - git push origin -d latest
-    - git tag latest -fa "latest" -m "${TAG_ABBREV}"
-    - git push origin --tags
+    - git tag -fa latest -m "${TAG_ABBREV}" ${TAG_COMMIT}
+    - git push origin --tags --force
