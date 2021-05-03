@@ -17,4 +17,4 @@ If you use any of the code in this project, I would appreciate I or the project 
 
 ## License
 
-This software is distributed under the [MIT License](./LICENSE).
+This software is distributed under the [MIT License](./LICENSE), and by extension under [FVTT's Module Development License](https://foundryvtt.com/article/license/).
