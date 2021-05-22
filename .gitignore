@@ -1,8 +1,8 @@
 node_modules/*
 *.code-workspace
-foundry.js
+*.js
 package-lock.json
 .vscode
-experiment.js
 *.tgz
 *.zip
+*.lock
