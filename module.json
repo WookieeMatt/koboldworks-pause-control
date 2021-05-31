@@ -8,7 +8,7 @@
 	"version": "1.0.0",
 	"author": "MKAh",
 	"authors": [
-		{ "name": "MKAh", "url": "https://gitlab.com/mkahvi", "discord": "Mana#4176" }
+		{ "name": "MKAh", "url": "https://gitlab.com/mkahvi", "discord": "Mana#4176", "ko-fi": "mkahvi" }
 	],
 
 	"esmodules": [ "pause-control.mjs" ],
