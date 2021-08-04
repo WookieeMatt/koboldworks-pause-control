@@ -1,5 +1,3 @@
-'use strict';
-
 async function saveState(combat, _options, _id) {
 	if (!game.user.isGM) return;
 

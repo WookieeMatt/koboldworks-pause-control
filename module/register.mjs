@@ -1,5 +1,3 @@
-'use strict';
-
 import { module } from '../common.mjs';
 import { KoboldworksPauseConfig } from './menu.mjs';
 import { togglePauseRestore } from './pauseRestore.mjs';

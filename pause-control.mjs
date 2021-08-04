@@ -1,5 +1,3 @@
-'use strict';
-
 import { module } from './common.mjs';
 import { registerSettings} from './module/register.mjs';
 

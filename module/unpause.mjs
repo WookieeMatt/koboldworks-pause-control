@@ -1,5 +1,3 @@
-'use strict';
-
 export function unPauseCombat(combat, _settings, _id) {
 	if (!combat.data.active) return; // shouldn't happen
 	if (!combat.started) return; // undesired.
