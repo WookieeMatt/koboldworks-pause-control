@@ -1,7 +1,7 @@
 import { module } from '../common.mjs';
 
 const template = 'modules/koboldworks-pause-control/template/config.hbs';
-Hooks.once('init', () => loadTemplates([template]));
+Hooks.once('ready', async () => loadTemplates([template]));
 
 export class KoboldworksPauseConfig extends FormApplication {
 	/** @override */
