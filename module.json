@@ -5,7 +5,7 @@
 
 	"manifestPlusVersion": "1.1.0",
 
-	"version": "1.0.0",
+	"version": "1.0.0.1",
 	"author": "MKAh",
 	"authors": [
 		{ "name": "MKAh", "url": "https://gitlab.com/mkahvi", "discord": "Mana#4176", "ko-fi": "mkahvi" }
@@ -18,7 +18,7 @@
 	],
 
 	"minimumCoreVersion": "0.7.9",
-	"compatibleCoreVersion": "0.8.5",
+	"compatibleCoreVersion": "0.8.9",
 
 	"conflicts": [],
 
@@ -26,7 +26,7 @@
 	"readme": "README.md",
 
 	"manifest": "https://gitlab.com/koboldworks/agnostic/pause-control/-/raw/latest/module.json",
-	"download": "https://gitlab.com/koboldworks/agnostic/pause-control/-/archive/1.0.0/pause-control-1.0.0.zip",
+	"download": "https://gitlab.com/koboldworks/agnostic/pause-control/-/archive/1.0.0.1/pause-control-1.0.0.1.zip",
 	"url": "https://gitlab.com/koboldworks/agnostic/pause-control",
 	"bugs": "https://gitlab.com/koboldworks/agnostic/pause-control/-/issues"
 }
