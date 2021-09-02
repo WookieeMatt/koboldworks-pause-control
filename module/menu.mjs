@@ -1,19 +1,19 @@
 import { module } from '../common.mjs';
 
-const template = 'modules/koboldworks-pause-control/template/config.hbs';
-Hooks.once('ready', async () => loadTemplates([template]));
-
 export class KoboldworksPauseConfig extends FormApplication {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			id: "koboldworks-pause-config",
 			title: game.i18n.localize('Koboldworks.Pause.Title'),
-			template: template,
 			width: 420,
 			height: "auto",
 			closeOnSubmit: true
 		})
+	}
+
+	get template() {
+		return `modules/${module}/template/config.hbs`;
 	}
 
 	getData() {
@@ -57,7 +57,6 @@ export class KoboldworksPauseConfig extends FormApplication {
 		});
 	}
 
-	// eslint-disable-next-line class-methods-use-this
 	async _onResetDefaults(event) {
 		event.preventDefault();
 		await game.settings.set('unpauseOnReady', false);
