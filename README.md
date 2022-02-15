@@ -9,7 +9,7 @@ Offers several options for controlling pause state.
 
 ## Install
 
-Manifest URL: https://gitlab.com/koboldworks/agnostic/pause-control/-/raw/latest/module.json
+Manifest URL: <https://gitlab.com/koboldworks/agnostic/pause-control/-/raw/latest/module.json>
 
 ## Attribution
 
@@ -21,4 +21,4 @@ If you use any of the code in this project, I would appreciate I or the project 
 
 ## License
 
-This software is distributed under the [MIT License](./LICENSE), and by extension under [FVTT's Module Development License](https://foundryvtt.com/article/license/).
+This software is distributed under the [MIT License](./LICENSE).
