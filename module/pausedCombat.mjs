@@ -1,5 +1,4 @@
 function combatPauseControl(combat, _settings, _id) {
-	if (!combat.data.active) return; // shouldn't happen
 	if (!combat.started) return; // undesired interrference.
 	if (combat.data.combatants?.length < 1) return; // combat with no combatants
 
