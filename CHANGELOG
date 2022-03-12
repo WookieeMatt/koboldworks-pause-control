@@ -1,5 +1,5 @@
-# 1.0.0 Dedicated Module
+# Change Log
 
-## Fixed
+## 1.0.0 Dedicated Module
 
-- Restore pause state now remembers pre-combat state even if GM refreshes or server is restarted.
+- Fixed: Restore pause state now remembers pre-combat state even if GM refreshes or server is restarted.
