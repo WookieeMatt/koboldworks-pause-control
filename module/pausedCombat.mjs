@@ -1,12 +1,14 @@
+import { CFG } from './config.mjs';
+
 function combatPauseControl(combat, _settings, _id) {
+	if (!game.user.isGM) return;
+
 	if (!combat.started) return; // undesired interrference.
 	if (combat.data.combatants?.length < 1) return; // combat with no combatants
 
-	if (!game.user.isGM) return;
-
-	let actor = canvas.tokens.get(combat.current.tokenId)?.actor;
-	const newPauseState = !(actor?.hasPlayerOwner);
-	if (CONFIG.Koboldworks?.debug) console.log('KOBOLDWORKS | PausedCombat | Pausing: ', newPauseState, 'Actor: ', actor);
+	const actor = canvas.tokens.get(combat.current.tokenId)?.actor;
+	const newPauseState = !actor?.hasPlayerOwner;
+	if (CFG.debug) console.log('KOBOLDWORKS | PausedCombat | Pausing: ', newPauseState, 'Actor: ', actor);
 
 	if (game.paused !== newPauseState)
 		game.togglePause(newPauseState, true);

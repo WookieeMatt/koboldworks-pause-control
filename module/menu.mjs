@@ -1,73 +1,85 @@
-import { module } from '../common.mjs';
+import { CFG } from './config.mjs';
 
 export class KoboldworksPauseConfig extends FormApplication {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			id: "koboldworks-pause-config",
+			id: 'koboldworks-pause-config',
 			title: game.i18n.localize('Koboldworks.Pause.Title'),
 			width: 420,
-			height: "auto",
+			height: 'auto',
 			closeOnSubmit: true
 		})
 	}
 
 	get template() {
-		return `modules/${module}/template/config.hbs`;
+		return `modules/${CFG.module}/template/config.hbs`;
 	}
 
 	getData() {
-		let data = super.getData();
+		const data = super.getData();
 
 		data.settings = {
 			onReady: {
 				key: 'unpauseOnReady',
 				hint: 'Koboldworks.Unpause.OnReadyHint',
 				label: 'Koboldworks.Unpause.OnReady',
-				value: game.settings.get(module, 'unpauseOnReady'),
+				value: game.settings.get(CFG.module, 'unpauseOnReady'),
 			},
 			onCombat: {
 				key: 'unpauseOnCombat',
 				hint: 'Koboldworks.Unpause.OnCombatHint',
 				label: 'Koboldworks.Unpause.OnCombat',
-				value: game.settings.get(module, 'unpauseOnCombat'),
+				value: game.settings.get(CFG.module, 'unpauseOnCombat'),
 			},
 			pausedCombat: {
 				key: 'pausedCombat',
 				hint: 'Koboldworks.Pause.CombatControlHint',
 				label: 'Koboldworks.Pause.CombatControl',
-				value: game.settings.get(module, 'pausedCombat'),
+				value: game.settings.get(CFG.module, 'pausedCombat'),
 			},
 			restore: {
 				key: 'restorePause',
 				hint: 'Koboldworks.Pause.RestoreHint',
 				label: 'Koboldworks.Pause.Restore',
-				value: game.settings.get(module, 'restorePause'),
+				value: game.settings.get(CFG.module, 'restorePause'),
 			},
 		};
 
 		return data;
 	}
 
+	/**
+	 * @param {Event} _
+	 * @param {Object} formData
+	 */
 	async _updateObject(_, formData) {
-		Object.keys(formData).forEach(async (key) => {
-			let value = formData[key];
-			if (game.settings.get(module, key) !== value)
-				await game.settings.set(module, key, value);
-		});
+		for (const [key, value] of Object.entries(formData)) {
+			if (game.settings.get(CFG.module, key) !== value)
+				await game.settings.set(CFG.module, key, value);
+		}
 	}
 
+	/**
+	 * @param {Event} event
+	 */
 	async _onResetDefaults(event) {
 		event.preventDefault();
-		await game.settings.set('unpauseOnReady', false);
-		await game.settings.set('unpauseOnCombat', false);
-		await game.settings.set('pausedCombat', false);
-		await game.settings.set('restorePause', false);
+		event.stopPropagation();
+		await game.settings.set(CFG.module, 'unpauseOnReady', false);
+		await game.settings.set(CFG.module, 'unpauseOnCombat', false);
+		await game.settings.set(CFG.module, 'pausedCombat', false);
+		await game.settings.set(CFG.module, 'restorePause', false);
 		this.close();
 	}
 
-	activateListeners(html) {
-		super.activateListeners(html);
-		html.find('button[name="reset"]').click(this._onResetDefaults.bind(this));
+	/**
+	 * @param {JQuery} jq
+	 */
+	activateListeners(jq) {
+		super.activateListeners(jq);
+		const html = jq[0];
+		html.querySelector('button[name="reset"]')
+			?.addEventListener('click', this._onResetDefaults.bind(this));
 	}
 }

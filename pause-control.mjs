@@ -1,29 +1,49 @@
-import { module } from './common.mjs';
-import { registerSettings} from './module/register.mjs';
+import { CFG } from './module/config.mjs';
 
+import { KoboldworksPauseConfig } from './module/menu.mjs';
 import { togglePauseRestore } from './module/pauseRestore.mjs';
 import { toggleCombatUnpause } from './module/unpause.mjs';
 import { togglePauseControl } from './module/pausedCombat.mjs';
 import { setPauseState } from './module/core.mjs';
 
-Hooks.on('init', () => {
-	if (CONFIG.Koboldworks === undefined) CONFIG.Koboldworks = { debug: false };
+export function registerSettings() {
+	game.settings.register(CFG.module, 'unpauseOnReady', { default: false, type: Boolean, scope: 'world', config: false });
+	game.settings.register(CFG.module, 'unpauseOnCombat', { default: false, type: Boolean, scope: 'world', config: false, onChange: toggleCombatUnpause });
+	game.settings.register(CFG.module, 'pausedCombat', { default: false, type: Boolean, scope: 'world', config: false, onChange: togglePauseControl });
+	game.settings.register(CFG.module, 'restorePause', { default: false, type: Boolean, scope: 'world', config: false, onChange: togglePauseRestore });
 
+	game.settings.registerMenu(
+		CFG.module,
+		'pauseMenu',
+		{
+			id: 'koboldworks-pause-config',
+			name: 'Koboldworks.Pause.MenuLabel',
+			label: 'Koboldworks.Pause.Title',
+			hint: 'Koboldworks.Pause.MenuHint',
+			icon: 'far fa-pause-circle',
+			type: KoboldworksPauseConfig,
+			config: true,
+			restricted: true,
+		}
+	)
+}
+
+Hooks.on('init', () => {
 	registerSettings();
 });
 
 Hooks.once('ready', () => {
-	if (game.settings.get(module, 'pausedCombat'))
+	if (game.settings.get(CFG.module, 'pausedCombat'))
 		togglePauseControl(true);
 
-	if (game.settings.get(module, 'restorePause'))
+	if (game.settings.get(CFG.module, 'restorePause'))
 		togglePauseRestore(true);
 
-	if (game.settings.get(module, 'unpauseOnCombat'))
+	if (game.settings.get(CFG.module, 'unpauseOnCombat'))
 		toggleCombatUnpause(true);
 
-	if (game.settings.get(module, 'unpauseOnReady'))
+	if (game.settings.get(CFG.module, 'unpauseOnReady'))
 		setPauseState(false);
 
-	console.log(`Koboldworks.PauseControl | ${game.modules.get(module).data.version} | READY!`);
+	console.log(`Koboldworks.PauseControl | ${game.modules.get(CFG.module).data.version} | READY!`);
 });
