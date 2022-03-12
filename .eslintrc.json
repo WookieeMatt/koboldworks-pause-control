@@ -4,7 +4,7 @@
 		"jquery": true,
 		"browser": true,
 		"es2021": true,
-		"node": true
+		"node": false
 	},
 	"plugins": [
 		"optimize-regex"
@@ -29,6 +29,9 @@
 		}
 	],
 	"rules": {
+		"no-undef": ["error", { "typeof": true }],
+		"no-global-assign": ["error"],
+		"no-var": ["error"],
 		// Styling
 		"quotes": ["error", "single"],
 		"brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
@@ -101,11 +104,17 @@
 		],
 		"class-methods-use-this": [ "off", { "exceptMethods": [ "getData", "_updateObject"] } ],
 		"no-unused-vars": [ "warn", { "argsIgnorePattern": "^_" } ],
+		"no-redeclare": [
+			"warn",
+			{
+				"builtinGlobals": false
+			}
+		],
 		"no-shadow": [
 			"warn",
 			{
 				"builtinGlobals": true,
-				"hoist": "all",
+				"hoist": "never",
 				"allow": ["event", "parent", "name"]
 			}
 		],
@@ -146,8 +155,10 @@
 		"loadTemplates": "readonly",
 		"flattenObject": "readonly",
 		"isNewerVersion": "readonly",
+		"TokenConfig": "readonly",
 		"randomID": "readonly",
 		"renderTemplate": "readonly",
+		"getTemplate": "readonly",
 		"Handlebars": "readonly",
 		"TextEditor": "readonly",
 		"Hooks": "readonly",
