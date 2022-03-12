@@ -11,9 +11,9 @@
 		},
 		"Unpause": {
 			"OnReady": "Unpause on ready",
-			"OnReadyHint": "Unpause game when the system signals readiness.",
+			"OnReadyHint": "Unpause when Foundry signals readiness.",
 			"OnCombat": "Unpause on combat",
-			"OnCombatHint": "Unpause game when combat starts."
+			"OnCombatHint": "Unpause when combat starts."
 		}
 	}
 }
