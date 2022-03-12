@@ -1,0 +1,4 @@
+*.js
+*.lock
+*.bundled.*
+*.map
