@@ -1,0 +1,20 @@
+{
+	"private": true,
+	"main": "pause-control.mjs",
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"devDependencies": {
+		"@babel/eslint-parser": "^7.17.0",
+		"@league-of-foundry-developers/foundry-vtt-types": "^9.249.4",
+		"eslint": "^8.10.0",
+		"eslint-plugin-optimize-regex": "^1.2.1"
+	},
+	"scripts": {
+		"release": "npm run build",
+		"build": "npx rollup -c .rollup.conf.js",
+		"build:watch": "npx rollup -c .rollup.conf.js -w",
+		"lint:js": "set TIMING=1 && npx eslint . --ext js,mjs --cache",
+		"lint:js:fix": "npx eslint . --ext js,mjs --cache --fix"
+	}
+}
