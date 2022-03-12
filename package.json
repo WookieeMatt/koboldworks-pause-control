@@ -7,8 +7,9 @@
 	"devDependencies": {
 		"@babel/eslint-parser": "^7.17.0",
 		"@league-of-foundry-developers/foundry-vtt-types": "^9.249.4",
-		"eslint": "^8.10.0",
-		"eslint-plugin-optimize-regex": "^1.2.1"
+		"eslint": "^8.11.0",
+		"eslint-plugin-optimize-regex": "^1.2.1",
+		"rollup": "^2.70.0"
 	},
 	"scripts": {
 		"release": "npm run build",
