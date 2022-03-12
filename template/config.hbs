@@ -1,11 +1,9 @@
 <form autocomplete='off' class='flexcol'>
+	{{!-- SETTINGS --}}
 	{{#each settings}}
 	<div class='form-group'>
-		<label for='setting.onReady'>{{localize label}}</label>
-		<div class='form-fields'>
-			<input type='checkbox' name='{{key}}' data-dtype='Boolean' {{checked value}}></input>
-			</input>
-		</div>
+		<input id='pause-control-{{key}}' type='checkbox' name='{{key}}' data-dtype='Boolean' {{checked value}}></input>
+		<label for='pause-control-{{key}}'>{{localize label}}</label>
 		<p class='notes'>{{localize hint}}</p>
 	</div>
 	{{/each}}
