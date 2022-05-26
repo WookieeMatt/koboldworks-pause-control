@@ -1,4 +1,5 @@
 import { CFG } from './module/config.mjs';
+import { getDocData } from './module/common.mjs';
 
 import { KoboldworksPauseConfig } from './module/menu.mjs';
 import { togglePauseRestore } from './module/pauseRestore.mjs';
@@ -45,5 +46,7 @@ Hooks.once('ready', () => {
 	if (game.settings.get(CFG.module, 'unpauseOnReady'))
 		setPauseState(false);
 
-	console.log(`Koboldworks.PauseControl | ${game.modules.get(CFG.module).data.version} | READY!`);
+	const mod = game.modules.get(CFG.module);
+	const md = getDocData(mod);
+	console.log(`Koboldworks.PauseControl | ${md.version} | READY!`);
 });
