@@ -29,7 +29,7 @@ export function registerSettings() {
 	)
 }
 
-Hooks.on('init', () => {
+Hooks.once('init', () => {
 	registerSettings();
 });
 
