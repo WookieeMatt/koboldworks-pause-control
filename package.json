@@ -5,10 +5,10 @@
 		"node": ">=16.0.0"
 	},
 	"devDependencies": {
-		"@babel/eslint-parser": "^7.17.0",
-		"@league-of-foundry-developers/foundry-vtt-types": "^9.249.4",
+		"@babel/eslint-parser": "^7.18.2",
+		"@league-of-foundry-developers/foundry-vtt-types": "^9.269.0",
 		"esbuild": "^0.14.48",
-		"eslint": "^8.11.0",
+		"eslint": "^8.19.0",
 		"eslint-plugin-optimize-regex": "^1.2.1",
 		"lint-staged": "^13.0.3",
 		"prettier": "^2.7.1"
