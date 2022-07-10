@@ -9,9 +9,7 @@
 			"es2021",
 			"esnext"
 		],
-		"types": [
-			"@league-of-foundry-developers/foundry-vtt-types"
-		],
+		"types": ["@league-of-foundry-developers/foundry-vtt-types/index-lenient"],
 		"skipLibCheck": true,
 		"noImplicitAny": false,
 		"noImplicitThis": true,
