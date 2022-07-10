@@ -45,11 +45,15 @@ else
 
 // git tagging
 
-console.log('\nGenerating tag:', json.version);
+console.log('\nGenerating release:', json.version);
 execSync('git add .');
 execSync(`git commit -m "${json.version}"`);
 execSync(`git tag -a ${json.version} -m "${json.version}"`);
+console.log('Pushing release');
+execSync('git push');
+console.log('Pushing release tag');
+execSync(`git push origin ${json.version}`);
 
 // done
 
-console.log('\nRelease', json.version, 'is ready!\nPush it!');
+console.log('\nRelease', json.version, 'is ready!');
