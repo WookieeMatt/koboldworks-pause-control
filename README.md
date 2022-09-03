@@ -9,7 +9,7 @@ Offers several options for controlling pause state.
 
 ## Install
 
-Manifest URL: <https://gitlab.com/koboldworks/agnostic/pause-control/-/raw/latest/module.json>
+Manifest URL: <https://gitlab.com/koboldworks/agnostic/pause-control/-/releases/permalink/latest/downloads/module.json>
 
 ## Attribution
 

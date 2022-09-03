@@ -4,24 +4,29 @@
 	"engines": {
 		"node": ">=16.0.0"
 	},
+	"type": "module",
 	"devDependencies": {
 		"@babel/eslint-parser": "^7.18.2",
 		"@league-of-foundry-developers/foundry-vtt-types": "^9.269.0",
 		"esbuild": "^0.14.48",
+		"esbuild-plugin-copy": "^1.3.0",
 		"eslint": "^8.19.0",
 		"eslint-plugin-optimize-regex": "^1.2.1",
+		"husky": "^8.0.1",
 		"lint-staged": "^13.0.3",
 		"prettier": "^2.7.1"
 	},
 	"lint-staged": {
 		"*.mjs": "eslint --cache --fix",
 		"*.json": "prettier --write",
-		"*.scss": "prettier --write"
+		"*.scss": "prettier --write",
+		"*.md": "prettier --write"
 	},
 	"scripts": {
 		"release": "node ./scripts/release.mjs",
-		"build": "node ./scripts/esbuild.mjs",
-		"build:watch": "node ./scripts/esbuild.mjs --watch",
+		"build": "npm run js",
+		"js": "node ./scripts/esbuild.mjs",
+		"js:watch": "node ./scripts/esbuild.mjs --watch",
 		"lint:js": "set TIMING=1 && npx eslint . --ext js,mjs --cache",
 		"lint:js:fix": "npx eslint . --ext js,mjs --cache --fix"
 	}

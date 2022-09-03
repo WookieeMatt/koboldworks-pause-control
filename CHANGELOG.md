@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.1.0
+
+- Foundry v10 compatibility confirmation
+- New release mechanism for smaller download & install sizes.
+
 ## 1.0.1
 
 - Maintenance update.
