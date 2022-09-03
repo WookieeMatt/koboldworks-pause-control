@@ -3,7 +3,7 @@
 	"name": "koboldworks-pause-control",
 	"title": "Koboldworks – Pause Control ⏯️",
 	"description": "Allows automation of pausing and unpausing in certain situations.",
-	"version": "1.1.0",
+	"version": "1.1.0.1",
 	"authors": [
 		{
 			"name": "MKAh",
@@ -30,7 +30,7 @@
 	"readme": "README.md",
 	"changelog": "CHANGELOG.md",
 	"manifest": "https://gitlab.com/koboldworks/agnostic/pause-control/-/releases/permalink/latest/downloads/module.json",
-	"download": "https://gitlab.com/koboldworks/agnostic/pause-control/-/releases/1.1.0/downloads/pause-control.zip",
+	"download": "https://gitlab.com/koboldworks/agnostic/pause-control/-/releases/1.1.0.1/downloads/pause-control.zip",
 	"url": "https://gitlab.com/koboldworks/agnostic/pause-control",
 	"bugs": "https://gitlab.com/koboldworks/agnostic/pause-control/-/issues"
 }
