@@ -1,4 +1,6 @@
-node_modules/
+node_modules
+dist
+
 foundry*.js
 
 # MJS uses eslint for formatting
@@ -8,5 +10,4 @@ foundry*.js
 *.hbs
 
 # Built files
-*.bundled.*
 *.css
