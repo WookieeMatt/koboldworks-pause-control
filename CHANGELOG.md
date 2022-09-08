@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.1.0.2
+
+- Fix: Lingering v10 compatibility issue
+
+## 1.1.0.1
+
+- Fix: Release building
+
 ## 1.1.0
 
 - Foundry v10 compatibility confirmation

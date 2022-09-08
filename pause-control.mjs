@@ -1,7 +1,7 @@
 import { CFG } from './module/config.mjs';
-import { getDocData } from './module/common.mjs';
+import { getDocData } from './module/compat.mjs';
 
-import { KoboldworksPauseConfig } from './module/menu.mjs';
+import { PauseConfig } from './module/menu.mjs';
 import { togglePauseRestore } from './module/pauseRestore.mjs';
 import { toggleCombatUnpause } from './module/unpause.mjs';
 import { togglePauseControl } from './module/pausedCombat.mjs';
@@ -22,7 +22,7 @@ export function registerSettings() {
 			label: 'Koboldworks.Pause.Title',
 			hint: 'Koboldworks.Pause.MenuHint',
 			icon: 'far fa-pause-circle',
-			type: KoboldworksPauseConfig,
+			type: PauseConfig,
 			config: true,
 			restricted: true,
 		}
@@ -47,6 +47,6 @@ Hooks.once('ready', () => {
 		setPauseState(false);
 
 	const mod = game.modules.get(CFG.module);
-	const md = getDocData(mod);
-	console.log(`Koboldworks.PauseControl | ${md.version} | READY!`);
+	console.log(`%cPAUSE CONTROL%c | %c${getDocData(mod).version}%c | READY!`,
+		CFG.COLORS.main, CFG.COLORS.unset, CFG.COLORS.label, CFG.COLORS.unset);
 });

@@ -9,7 +9,7 @@ async function saveState(combat, _options, _id) {
 
 	const preCombatState = game.paused;
 
-	if (CFG.debug) console.log('KOBOLDWORKS | Restore Pause | Recording state as: ', preCombatState);
+	if (CFG.debug) console.log('%cPAUSE CONTROL%c | Restore Pause | Recording state as: ', CFG.COLORS.main, CFG.COLORS.unset, preCombatState);
 
 	return combat.setFlag(CFG.module, 'preCombatState', preCombatState);
 }
@@ -25,7 +25,7 @@ function restoreState(combat, _options, _id) {
 	const preCombatState = combat.getFlag(CFG.module, 'preCombatState');
 	if (preCombatState === undefined) return;
 
-	if (CFG.debug) console.log('KOBOLDWORKS | Restore Pause | Restoring state to: ', preCombatState);
+	if (CFG.debug) console.log('%cPAUSE CONTROL%c | Restore Pause | Restoring state to: ', CFG.COLORS.main, CFG.COLORS.unset, preCombatState);
 
 	game.togglePause(preCombatState, true);
 

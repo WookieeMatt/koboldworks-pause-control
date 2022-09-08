@@ -1,6 +1,6 @@
 import { CFG } from './config.mjs';
 
-export class KoboldworksPauseConfig extends FormApplication {
+export class PauseConfig extends FormApplication {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {

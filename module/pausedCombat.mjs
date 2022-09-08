@@ -8,7 +8,8 @@ function combatPauseControl(combat, _settings, _id) {
 
 	const actor = canvas.tokens.get(combat.current.tokenId)?.actor;
 	const newPauseState = !actor?.hasPlayerOwner;
-	if (CFG.debug) console.log('KOBOLDWORKS | PausedCombat | Pausing: ', newPauseState, 'Actor: ', actor);
+	if (CFG.debug) console.log(`%cPAUSE CONTROL%c | Combat | Pausing: %c${newPauseState}%c; Actor:`,
+		CFG.COLORS.main, CFG.COLORS.unset, CFG.COLORS.label, CFG.COLORS.unset, actor);
 
 	if (game.paused !== newPauseState)
 		game.togglePause(newPauseState, true);
