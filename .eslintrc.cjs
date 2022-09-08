@@ -134,9 +134,9 @@ module.exports = {
 		],
 		// Objects
 		'object-curly-newline': [
-			'error',
+			'warn',
 			{
-				ObjectExpression: { consistent: true, multiline: false, minProperties: 5 },
+				ObjectExpression: { consistent: true },
 				ObjectPattern: 'never',
 				ImportDeclaration: 'never',
 			}
