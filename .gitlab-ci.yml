@@ -26,6 +26,8 @@ variables:
 compile:
   stage: build
   before_script:
+    - apk update
+    - apk add git
     - npm ci --cache .npm --prefer-offline
   script:
     - npm run init
