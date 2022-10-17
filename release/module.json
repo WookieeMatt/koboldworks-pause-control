@@ -26,9 +26,9 @@
 		"minimum": "0.7.9",
 		"verified": 10
 	},
-	"license": "LICENSE",
-	"readme": "README.md",
-	"changelog": "CHANGELOG.md",
+	"license": "https://gitlab.com/koboldworks/agnostic/pause-control/-/raw/main/LICENSE",
+	"readme": "https://gitlab.com/koboldworks/agnostic/pause-control/-/raw/master/README.md",
+	"changelog": "https://gitlab.com/koboldworks/agnostic/pause-control/-/raw/master/CHANGELOG.md",
 	"manifest": "https://gitlab.com/koboldworks/agnostic/pause-control/-/releases/permalink/latest/downloads/module.json",
 	"download": "https://gitlab.com/koboldworks/agnostic/pause-control/-/releases/1.1.0.2/downloads/pause-control.zip",
 	"url": "https://gitlab.com/koboldworks/agnostic/pause-control",
