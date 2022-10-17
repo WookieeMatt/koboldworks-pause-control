@@ -10,7 +10,6 @@ foundry*.js
 dev-env/
 .editorconfig
 .eslintrc.json
-.gitattributes
 .prettierignore
 .prettierrc
 jsconfig.json
