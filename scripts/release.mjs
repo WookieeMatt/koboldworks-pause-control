@@ -53,9 +53,9 @@ execSync(`git commit -m "${json.version}"`);
 execSync(`git tag -a ${json.version} -m "${json.version}"`);
 // execSync(`git tag -f latest`);
 console.log('Pushing release');
-// execSync('git push');
+execSync('git push');
 // console.log('Pushing release tag');
-execSync(`git push origin ${json.version}`);
+// execSync(`git push origin ${json.version}`);
 
 // done
 
