@@ -1,5 +1,9 @@
 # Change Log
 
+## NEXT
+
+- Fix: Unpause on ready did not work with v10 anymore [#1]
+
 ## 1.1.0.2
 
 - Fix: Lingering v10 compatibility issue
