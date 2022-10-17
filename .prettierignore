@@ -1,0 +1,12 @@
+node_modules
+dist
+foundry*.js
+
+# MJS uses eslint for formatting
+*.mjs
+
+# Unsupported
+*.hbs
+
+# Built files
+*.css
