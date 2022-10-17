@@ -1,6 +1,6 @@
 # Change Log
 
-## NEXT
+## 1.1.0.3
 
 - Fix: Unpause on ready did not work with v10 anymore [#1]
 
