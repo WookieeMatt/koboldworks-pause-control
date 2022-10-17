@@ -49,9 +49,9 @@ execSync(`npx prettier --write ${MANIFEST}`);
 // git tagging
 console.log('\nGenerating release:', json.version);
 execSync('git add .');
-execSync(`git commit -m "${json.version}"`);
 const rv = execSync('git status --porcelain');
 console.log(rv);
+execSync(`git commit -m "${json.version}"`);
 execSync(`git tag -a ${json.version} -m "${json.version}"`);
 // execSync(`git tag -f latest`);
 console.log('Pushing release');
