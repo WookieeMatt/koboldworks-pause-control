@@ -17,6 +17,7 @@ cache:
 
 variables:
   GIT_STRATEGY: fetch
+  GIT_SUBMODULE_STRATEGY: recursive
   GIT_DEPTH: "1"
   PACKAGE_NAME: pause-control
   PACKAGE_TYPE: module
@@ -29,8 +30,9 @@ compile:
     - apk update
     - apk add git
     - npm ci --cache .npm --prefer-offline
-  script:
     - npm run init
+    - npm run setup
+  script:
     - npm run build
     - mv $BUILD_DIRECTORY $PACKAGE_NAME
   artifacts:

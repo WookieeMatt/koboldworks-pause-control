@@ -26,7 +26,8 @@
 		"js:watch": "node ./scripts/esbuild.mjs --watch",
 		"lint:js": "set TIMING=1 && npx eslint . --ext js,mjs --cache",
 		"lint:js:fix": "npx eslint . --ext js,mjs --cache --fix",
-		"init": "git submodule init && git submodule update --remote && node ./dev-env/setup.mjs --foundryvtt"
+		"init": "git submodule init && git submodule update --remote",
+		"setup": "node ./dev-env/setup.mjs --foundryvtt"
 	},
 	"private": true
 }
