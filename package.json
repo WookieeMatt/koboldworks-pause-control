@@ -1,12 +1,10 @@
 {
-	"private": true,
-	"main": "pause-control.mjs",
+	"source": "pause-control.mjs",
 	"engines": {
 		"node": ">=16.0.0"
 	},
 	"type": "module",
 	"devDependencies": {
-		"@babel/eslint-parser": "^7.18.2",
 		"@league-of-foundry-developers/foundry-vtt-types": "^9.269.0",
 		"esbuild": "^0.14.48",
 		"esbuild-plugin-copy": "^1.3.0",
@@ -19,8 +17,7 @@
 	"lint-staged": {
 		"*.mjs": "eslint --cache --fix",
 		"*.json": "prettier --write",
-		"*.scss": "prettier --write",
-		"*.md": "prettier --write"
+		"*.scss": "prettier --write"
 	},
 	"scripts": {
 		"release": "node ./scripts/release.mjs",
@@ -28,6 +25,8 @@
 		"js": "node ./scripts/esbuild.mjs",
 		"js:watch": "node ./scripts/esbuild.mjs --watch",
 		"lint:js": "set TIMING=1 && npx eslint . --ext js,mjs --cache",
-		"lint:js:fix": "npx eslint . --ext js,mjs --cache --fix"
-	}
+		"lint:js:fix": "npx eslint . --ext js,mjs --cache --fix",
+		"init": "git submodule init && git submodule update --remote && node ./dev-env/setup.mjs --foundryvtt"
+	},
+	"private": true
 }

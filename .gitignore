@@ -7,3 +7,10 @@ foundry*.js
 *.zip
 *.lock
 .eslintcache
+dev-env/
+.editorconfig
+.eslintrc.json
+.gitattributes
+.prettierignore
+.prettierrc
+jsconfig.json
