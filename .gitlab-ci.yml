@@ -28,6 +28,7 @@ compile:
   before_script:
     - npm ci --cache .npm --prefer-offline
   script:
+    - npm run init
     - npm run build
     - mv $BUILD_DIRECTORY $PACKAGE_NAME
   artifacts:
