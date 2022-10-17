@@ -13,7 +13,7 @@ export function setPauseState(state) {
 	else {
 		// DANGER WILL ROBINSON: SKIP GM
 		// WARN: THIS IS LIKELY TO BREAK IN THE FUTURE IF PERMISSIONS ARE CHECKED PROPERLY
-		if (game.release.generation >= 10)
+		if (game.release?.generation >= 10)
 			game.data.paused = state; // game.paused is getter for this in v10
 		else
 			game.paused = state;
