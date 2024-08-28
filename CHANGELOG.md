@@ -1,6 +1,6 @@
 # Change Log
 
-## NEXT
+## 1.2.0
 
 - Refactor: Support removed for Foundry v10 and older.
 
