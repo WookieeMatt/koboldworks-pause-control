@@ -1,5 +1,9 @@
 # Change Log
 
+## NEXT
+
+- Refactor: Support removed for Foundry v10 and older.
+
 ## 1.1.0.3
 
 - Fix: Unpause on ready did not work with v10 anymore [#1]

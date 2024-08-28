@@ -1,6 +1,5 @@
 {
 	"id": "koboldworks-pause-control",
-	"name": "koboldworks-pause-control",
 	"title": "Koboldworks – Pause Control ⏯️",
 	"description": "Allows automation of pausing and unpausing in certain situations.",
 	"version": "1.1.0.3",
@@ -8,7 +7,7 @@
 		{
 			"name": "MKAh",
 			"url": "https://gitlab.com/mkahvi",
-			"discord": "Mana#4176",
+			"discord": "manaflower",
 			"ko-fi": "mkahvi"
 		}
 	],
@@ -19,10 +18,9 @@
 			"path": "lang/en.json"
 		}
 	],
-	"minimumCoreVersion": "0.7.9",
 	"compatibility": {
-		"minimum": "0.7.9",
-		"verified": 10
+		"minimum": 11,
+		"verified": 12
 	},
 	"license": "https://gitlab.com/koboldworks/agnostic/pause-control/-/raw/main/LICENSE",
 	"readme": "https://gitlab.com/koboldworks/agnostic/pause-control/-/raw/master/README.md",

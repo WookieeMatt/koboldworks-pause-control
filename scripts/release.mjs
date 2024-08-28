@@ -1,38 +1,66 @@
-import fs from 'node:fs';
+import fs from 'fs';
 import { execSync } from 'node:child_process';
-import process from 'node:process';
+import process from 'process';
 
 // TODO: generate version and make sure it does not conflict with existing release tags.
 
 const MANIFEST = './release/module.json',
 	CHANGELOG = './CHANGELOG.md';
 
+const args = process.argv.slice(2);
+
+const isHotFix = args.includes('hotfix');
+const isBugFix = (args.includes('fix') || args.includes('patch')) && !isHotFix;
+const isMajor = args.includes('major') && !isBugFix;
+const isMinor = !isHotFix && !isBugFix && !isMajor;
+const release = isMajor ? 'major' : isMinor ? 'minor' : isBugFix ? 'fix' : 'hotfix';
+
+console.log('Release type:', release);
+
 const json = JSON.parse(fs.readFileSync(MANIFEST));
 const { version, download } = json;
 
-// Check if tag for defined version already exists (except no output with no matching versions)
-const oldTagExists = execSync(`git tag -l ${version}`);
-if (oldTagExists.toString().split('\n').some(v => v === version)) {
-	console.error('Tag already exists for defined version:', version);
-	process.exit(0);
+let [majorVer, minorVer, patchVer, hotfix] = version.split('.').map(n => Number(n) || 0);
+console.log('Old version:', [majorVer, minorVer, patchVer, hotfix]);
+
+// Reset version numbers
+switch (release) {
+	case 'major':
+		minorVer = 0;
+	case 'minor':
+		patchVer = 0;
+	case 'patch':
+	case 'fix':
+		patchVer ||= 0;
+		hotfix = 0;
+	case 'hotfix':
+		hotfix ||= 0;
 }
 
-console.log('%cGenerating release%c:', 'color:gold', 'color:unset', json.version);
+// Increment version
+switch (release) {
+	case 'major': majorVer += 1; break;
+	case 'minor': minorVer += 1; break;
+	case 'patch':
+	case 'fix': patchVer += 1; break;
+	case 'hotfix': hotfix += 1; break;
+}
 
-const mdownload = download.replace(/(?<version>\d+(?:\.\d+){1,3})/gm, version);
+let newVersion = [majorVer, minorVer, patchVer, hotfix].join('.');
+newVersion = newVersion.replace(/\.0$/, ''); // Remove hotfix if not present
+
+console.log('New version:', [majorVer, minorVer, patchVer, hotfix], '=', newVersion);
+
+let sameVer = 0;
+const newDownload = download.replace(/releases\/(?<version>[\d.]+)\//, function (matched, oldversion) {
+	if (oldversion === newVersion) sameVer++;
+	return 'releases/' + newVersion + '/';
+});
 
 console.log('Old download:', download);
-console.log('New download:', mdownload);
-
-// Replace version in download string
-if (download === mdownload) {
-	console.log('module.json is up to date');
-}
-else {
-	json.download = mdownload;
-	fs.writeFileSync(MANIFEST, JSON.stringify(json, null, '\t'));
-	console.log('module.json updated');
-}
+console.log('New download:', newDownload);
+json.version = newVersion;
+json.download = newDownload;
 
 // changelog update
 const chlog = fs.readFileSync(CHANGELOG, { encoding: 'utf8' });
@@ -44,20 +72,31 @@ if (chlog !== chlogu) {
 else
 	console.log('Changelog needs no update');
 
+// Replace version in download string
+if (sameVer > 1) {
+	console.log('module.json is up to date');
+}
+else {
+	fs.writeFileSync(MANIFEST, JSON.stringify(json, null, '\t'));
+	execSync(`npx prettier ${MANIFEST} --write`);
+	console.log('module.json updated');
+}
+
 execSync(`npx prettier --write ${MANIFEST}`);
+
+// Old version shim
+// fs.copyFileSync(MANIFEST, MANIFEST_SHIM);
 
 // git tagging
 console.log('\nGenerating release:', json.version);
 execSync('git add .');
-const rv = execSync('git status --porcelain');
-console.log(rv);
 execSync(`git commit -m "${json.version}"`);
 execSync(`git tag -a ${json.version} -m "${json.version}"`);
 // execSync(`git tag -f latest`);
 console.log('Pushing release');
 execSync('git push');
-// console.log('Pushing release tag');
-// execSync(`git push origin ${json.version}`);
+console.log('Pushing release tag');
+execSync(`git push origin ${json.version}`);
 
 // done
 

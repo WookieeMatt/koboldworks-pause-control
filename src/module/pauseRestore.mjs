@@ -2,6 +2,8 @@ import { CFG } from './config.mjs';
 
 /**
  * @param {Combat} combat
+ * @param _options
+ * @param _id
  * @returns {Promise}
  */
 async function saveState(combat, _options, _id) {
@@ -9,23 +11,26 @@ async function saveState(combat, _options, _id) {
 
 	const preCombatState = game.paused;
 
-	if (CFG.debug) console.log('%cPAUSE CONTROL%c | Restore Pause | Recording state as: ', CFG.COLORS.main, CFG.COLORS.unset, preCombatState);
+	console.debug('%cPAUSE CONTROL%c | Restore Pause | Recording state as: ', CFG.COLORS.main, CFG.COLORS.unset, preCombatState);
 
-	return combat.setFlag(CFG.module, 'preCombatState', preCombatState);
+	return combat.setFlag(CFG.id, 'preCombatState', preCombatState);
 }
 
 /**
  *
  * @param {Combat}
+ * @param combat
+ * @param _options
+ * @param _id
  * @returns
  */
 function restoreState(combat, _options, _id) {
 	if (!game.user.isGM) return;
 
-	const preCombatState = combat.getFlag(CFG.module, 'preCombatState');
+	const preCombatState = combat.getFlag(CFG.id, 'preCombatState');
 	if (preCombatState === undefined) return;
 
-	if (CFG.debug) console.log('%cPAUSE CONTROL%c | Restore Pause | Restoring state to: ', CFG.COLORS.main, CFG.COLORS.unset, preCombatState);
+	console.debug('%cPAUSE CONTROL%c | Restore Pause | Restoring state to: ', CFG.COLORS.main, CFG.COLORS.unset, preCombatState);
 
 	game.togglePause(preCombatState, true);
 

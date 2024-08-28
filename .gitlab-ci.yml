@@ -11,24 +11,20 @@ stages:
   - prepare-release
   - release
 
-cache:
-  paths:
-    - node_modules
-
 variables:
   GIT_STRATEGY: fetch
-  GIT_DEPTH: "1"
   PACKAGE_NAME: pause-control
   PACKAGE_TYPE: module
   PACKAGE_REGISTRY_URL: $CI_API_V4_URL/projects/$CI_PROJECT_ID/packages/generic/$PACKAGE_NAME
   BUILD_DIRECTORY: dist
 
 compile:
+  image: oven/bun:alpine
   stage: build
   before_script:
-    - npm ci --cache .npm --prefer-offline
+    - bun ci
   script:
-    - npm run build
+    - bun run build
     - mv $BUILD_DIRECTORY $PACKAGE_NAME
   artifacts:
     paths:
