@@ -1,5 +1,8 @@
 # Koboldworks – Pause Control
 
+![Supported Foundry Versions: 11-12](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fversion%3Fstyle%3Dflat%26url%3Dhttps%3A%2F%2Fgitlab.com%2Fkoboldworks%2Fagnostic%2Fpause-control%2F-%2Freleases%2Fpermalink%2Flatest%2Fdownloads%2Fmodule.json)
+![Supported Game Systems: All](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fsystem%3FnameType%3Dfull%26showVersion%3D1%26style%3Dflat%26url%3Dhttps%3A%2F%2Fimg.shields.io%2Fendpoint%3Furl%3Dhttps%253A%252F%252Ffoundryshields.com%252Fversion%253Fstyle%253Dflat%2526url%253Dhttps%253A%252F%252Fgitlab.com%252Fkoboldworks%252Fagnostic%252Fpause-control%252F-%252Freleases%252Fpermalink%252Flatest%252Fdownloads%252Fmodule.json)
+
 Offers several options for controlling pause state.
 
 - Unpause on Foundry VTT ready state
