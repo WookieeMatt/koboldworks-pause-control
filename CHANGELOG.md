@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.4.0
+
+- Foundry v14 compatibility (v13 still supported).
+
 ## 1.3.0
 
 - Foundry v13 compatibility. Support removed for Foundry v12 and older.

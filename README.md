@@ -1,6 +1,6 @@
 # Koboldworks – Pause Control
 
-![Supported Foundry Versions: 13](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fversion%3Fstyle%3Dflat%26url%3Dhttps%3A%2F%2Fgithub.com%2FWookieeMatt%2Fkoboldworks-pause-control%2Freleases%2Flatest%2Fdownload%2Fmodule.json)
+![Supported Foundry Versions: 13-14](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fversion%3Fstyle%3Dflat%26url%3Dhttps%3A%2F%2Fgithub.com%2FWookieeMatt%2Fkoboldworks-pause-control%2Freleases%2Flatest%2Fdownload%2Fmodule.json)
 ![Supported Game Systems: All](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fsystem%3FnameType%3Dfull%26showVersion%3D1%26style%3Dflat%26url%3Dhttps%3A%2F%2Fimg.shields.io%2Fendpoint%3Furl%3Dhttps%253A%252F%252Ffoundryshields.com%252Fversion%253Fstyle%253Dflat%2526url%253Dhttps%253A%252F%252Fgithub.com%252FWookieeMatt%252Fkoboldworks-pause-control%252Freleases%252Flatest%252Fdownload%252Fmodule.json)
 
 Offers several options for controlling pause state.
