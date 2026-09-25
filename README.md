@@ -20,9 +20,9 @@ This is a maintained fork of the original [Koboldworks – Pause Control](https:
 
 1. Update `CHANGELOG.md` and the `version`/`compatibility` in `module.json`.
 2. Commit and push to `main`.
-3. Create a GitHub release with a tag equal to the version (e.g. `1.4.0`).
+3. Push a tag equal to the version: `git tag 1.4.0 && git push origin 1.4.0`
 
-The release workflow stamps the version into `module.json`, builds `module.zip` and attaches both to the release.
+The release workflow creates the GitHub release, stamps the version into `module.json`, builds `module.zip` and attaches both to the release.
 
 ## Attribution
 
