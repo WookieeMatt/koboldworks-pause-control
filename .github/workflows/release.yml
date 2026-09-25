@@ -1,0 +1,37 @@
+# Publish a release by creating a GitHub release whose tag is the version (e.g. 1.4.0).
+# This stamps the version into module.json, zips the module, and attaches
+# module.json + module.zip to the release so the manifest URL always points at the latest.
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Stamp version into manifest
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+          REPO: ${{ github.repository }}
+        run: |
+          VERSION="${TAG#v}"
+          jq --arg v "$VERSION" \
+             --arg dl "https://github.com/$REPO/releases/download/$TAG/module.zip" \
+             '.version = $v | .download = $dl' module.json > module.tmp.json
+          mv module.tmp.json module.json
+          cat module.json
+
+      - name: Package module
+        run: zip -r module.zip module.json src lang README.md CHANGELOG.md LICENSE
+
+      - name: Attach to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" module.json module.zip --clobber

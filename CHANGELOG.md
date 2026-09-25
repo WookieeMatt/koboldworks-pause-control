@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.3.0
+
+- Foundry v13 compatibility. Support removed for Foundry v12 and older.
+- Fix: Combat pause control failed on Foundry v12+ due to removed `combat.data`.
+- Fix: Combat pause control now uses the current combatant directly, so it works even when the token is not on the viewed scene.
+- Fix: Unpause on combat only triggers when combat starts, instead of undoing manual pauses during combat.
+- Change: Only one active GM performs automated pause changes; the unsupported player-side pause workaround was removed.
+- Change: Releases now published from GitHub.
+
 ## 1.2.0
 
 - Refactor: Support removed for Foundry v10 and older.

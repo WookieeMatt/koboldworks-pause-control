@@ -1,18 +1,27 @@
 import { CFG } from './config.mjs';
+import { isResponsibleGM, setPauseState } from './core.mjs';
 
-function combatPauseControl(combat, _settings, _id) {
-	if (!game.user.isGM) return;
+/**
+ * @param {Combat} combat
+ * @param {object} changed
+ * @param _options
+ * @param _userId
+ */
+function combatPauseControl(combat, changed, _options, _userId) {
+	if (!isResponsibleGM()) return;
+
+	// Only react to turn changes, not to unrelated combat updates (flags, etc.)
+	if (!('turn' in changed || 'round' in changed)) return;
 
 	if (!combat.started) return; // undesired interrference.
-	if (combat.data.combatants?.length < 1) return; // combat with no combatants
+	if (combat.combatants.size === 0) return; // combat with no combatants
 
-	const actor = canvas.tokens.get(combat.current.tokenId)?.actor;
+	const actor = combat.combatant?.actor;
 	const newPauseState = !actor?.hasPlayerOwner;
 	console.debug(`%cPAUSE CONTROL%c | Combat | Pausing: %c${newPauseState}%c; Actor:`,
 		CFG.COLORS.main, CFG.COLORS.unset, CFG.COLORS.label, CFG.COLORS.unset, actor);
 
-	if (game.paused !== newPauseState)
-		game.togglePause(newPauseState, true);
+	setPauseState(newPauseState);
 }
 
 export function togglePauseControl(value) {

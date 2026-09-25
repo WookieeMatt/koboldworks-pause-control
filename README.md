@@ -1,7 +1,7 @@
 # Koboldworks – Pause Control
 
-![Supported Foundry Versions: 11-12](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fversion%3Fstyle%3Dflat%26url%3Dhttps%3A%2F%2Fgitlab.com%2Fkoboldworks%2Fagnostic%2Fpause-control%2F-%2Freleases%2Fpermalink%2Flatest%2Fdownloads%2Fmodule.json)
-![Supported Game Systems: All](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fsystem%3FnameType%3Dfull%26showVersion%3D1%26style%3Dflat%26url%3Dhttps%3A%2F%2Fimg.shields.io%2Fendpoint%3Furl%3Dhttps%253A%252F%252Ffoundryshields.com%252Fversion%253Fstyle%253Dflat%2526url%253Dhttps%253A%252F%252Fgitlab.com%252Fkoboldworks%252Fagnostic%252Fpause-control%252F-%252Freleases%252Fpermalink%252Flatest%252Fdownloads%252Fmodule.json)
+![Supported Foundry Versions: 13](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fversion%3Fstyle%3Dflat%26url%3Dhttps%3A%2F%2Fgithub.com%2FWookieeMatt%2Fkoboldworks-pause-control%2Freleases%2Flatest%2Fdownload%2Fmodule.json)
+![Supported Game Systems: All](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fsystem%3FnameType%3Dfull%26showVersion%3D1%26style%3Dflat%26url%3Dhttps%3A%2F%2Fimg.shields.io%2Fendpoint%3Furl%3Dhttps%253A%252F%252Ffoundryshields.com%252Fversion%253Fstyle%253Dflat%2526url%253Dhttps%253A%252F%252Fgithub.com%252FWookieeMatt%252Fkoboldworks-pause-control%252Freleases%252Flatest%252Fdownload%252Fmodule.json)
 
 Offers several options for controlling pause state.
 
@@ -12,7 +12,17 @@ Offers several options for controlling pause state.
 
 ## Install
 
-Manifest URL: <https://gitlab.com/koboldworks/agnostic/pause-control/-/releases/permalink/latest/downloads/module.json>
+Manifest URL: <https://github.com/WookieeMatt/koboldworks-pause-control/releases/latest/download/module.json>
+
+This is a maintained fork of the original [Koboldworks – Pause Control](https://gitlab.com/koboldworks/agnostic/pause-control) by MKAh, updated for newer Foundry VTT versions.
+
+## Releasing
+
+1. Update `CHANGELOG.md` and the `version`/`compatibility` in `module.json`.
+2. Commit and push to `main`.
+3. Create a GitHub release with a tag equal to the version (e.g. `1.4.0`).
+
+The release workflow stamps the version into `module.json`, builds `module.zip` and attaches both to the release.
 
 ## Attribution
 

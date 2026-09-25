@@ -1,13 +1,14 @@
 import { CFG } from './config.mjs';
+import { isResponsibleGM, setPauseState } from './core.mjs';
 
 /**
  * @param {Combat} combat
  * @param _options
- * @param _id
+ * @param _userId
  * @returns {Promise}
  */
-async function saveState(combat, _options, _id) {
-	if (!game.user.isGM) return;
+async function saveState(combat, _options, _userId) {
+	if (!isResponsibleGM()) return;
 
 	const preCombatState = game.paused;
 
@@ -17,22 +18,19 @@ async function saveState(combat, _options, _id) {
 }
 
 /**
- *
- * @param {Combat}
- * @param combat
+ * @param {Combat} combat
  * @param _options
- * @param _id
- * @returns
+ * @param _userId
  */
-function restoreState(combat, _options, _id) {
-	if (!game.user.isGM) return;
+function restoreState(combat, _options, _userId) {
+	if (!isResponsibleGM()) return;
 
 	const preCombatState = combat.getFlag(CFG.id, 'preCombatState');
 	if (preCombatState === undefined) return;
 
 	console.debug('%cPAUSE CONTROL%c | Restore Pause | Restoring state to: ', CFG.COLORS.main, CFG.COLORS.unset, preCombatState);
 
-	game.togglePause(preCombatState, true);
+	setPauseState(preCombatState);
 
 	// deletion of the flag is unnecessary
 }

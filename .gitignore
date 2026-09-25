@@ -1,9 +1,5 @@
 node_modules
-dist
 *.code-workspace
 foundry*.js
 .vscode
-*.tgz
 *.zip
-*.lock
-.eslintcache

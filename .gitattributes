@@ -4,7 +4,6 @@
 
 # Binary
 
-*.lockb binary diff=lockb
 *.png binary
 *.jpg binary
 *.gif binary
